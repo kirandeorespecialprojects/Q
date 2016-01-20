@@ -98,7 +98,7 @@ define('main', ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'knoc
         //console.log("---------- bindingComplete --------");
         //if (data.__moduleId__ !== "viewmodels/shell")
             //$(view).trigger('refresh');
-		//$('#applicationHost').trigger('pagecreate');
+		//$(view).enhanceWithin();
     //};
 		
     return app.start()

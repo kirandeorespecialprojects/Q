@@ -4,9 +4,6 @@ define(function(require) {
     return {
 		attached : function(view, parent, settings){
 			//$(view).trigger('refresh');
-		},
-		goto : function(){
-			router.navigate('profile');
 		}
 	};
 });

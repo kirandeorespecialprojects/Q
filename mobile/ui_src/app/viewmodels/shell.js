@@ -26,8 +26,9 @@ define(function(require) {
         activate: function () {
             return router.activate({pushState : false});
         },
-        compositionComplete: function(){
-			$('[data-role="navbar"]').navbar();
+        compositionComplete: function(view, parent, settings){
+			//$('[data-role="navbar"]').navbar();
+			$(view).enhanceWithin();
 		},
 		goto: function(route){
 			console.log(route);

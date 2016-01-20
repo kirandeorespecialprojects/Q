@@ -1,28 +1,38 @@
-<div>
-	<div data-role="header" role="banner" class="ui-header ui-bar-inherit">
-		<h1 class="ui-title" role="heading" aria-level="1">Rent it now</h1>
+<div data-role="header" role="banner" class="ui-header ui-bar-inherit">
+		<a data-iconpos="notext" href="#myPanel" data-icon="bars" class="ui-btn-left"></a>
+		
+		<h1>Rent it</h1>
+		
+		<!--
+		<select name="select-choice-11" id="select-choice-11" data-theme="a" data-icon="gear" data-inline="true" data-native-menu="false" class="ui-btn-right">
+			<option value="edit">Edit user</option>
+			<option value="delete">Delete user</option>
+		</select>
+		-->
 		<div id="navbar" data-role="navbar">
 			<ul>
 				<li>
-					<!--<a data-bind="attr : { href : router.navigationModel()[0].hash }" data-icon="home"></a>-->
-					<button class="ui-btn" data-icon="home" data-bind="click: function(data, event){ goto(router.navigationModel()[0].route) }"></button>
+					<a data-bind="click: function(data, event){ goto(router.navigationModel()[0].route) }" data-icon="home" class="ui-link ui-btn ui-icon-home ui-btn-icon-top ui-btn-active"></a>
+					<!--<button class="ui-btn" data-icon="home" data-bind="click: function(data, event){ goto(router.navigationModel()[0].route) }"></button>-->
 				</li>
 				<li>
-					<!--<a data-bind="attr : { href : router.navigationModel()[1].hash }" data-icon="search"></a>-->
-					<button class="ui-btn" data-icon="search" data-bind="click: function(data, event) { goto(router.navigationModel()[1].route) }"></button>
+					<a data-bind="click: function(data, event){ goto(router.navigationModel()[1].route) }" data-icon="search"></a>
 				</li>
 				<li>
-					<!--<a data-bind="attr : { href : router.navigationModel()[2].hash }" data-icon="bars"></a>-->
-					<button class="ui-btn" data-icon="bars" data-bind="click: function(data, event){ goto(router.navigationModel()[2].route) }"></button>
+					<a data-bind="click: function(data, event){ goto(router.navigationModel()[2].route) }" data-icon="shop"></a>
 				</li>
 			</ul>
 		</div><!-- /navbar -->
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
-		<div class="page-host" data-bind="router: { }"></div>
+	
+		<div data-role="panel" id="myPanel" data-position="left" data-display="overlay"> 
+			<h2>Panel Header</h2>
+			<p>You can close the panel by clicking outside the panel, pressing the Esc key or by swiping.</p>
+		</div> 
+		<div class="page-host" data-bind="router: { cacheViews:true }"></div>
 	</div>
 
 	<div data-role="footer">
 	</div>
-</div><!-- /page -->
