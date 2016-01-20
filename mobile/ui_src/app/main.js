@@ -94,12 +94,12 @@ define('main', ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'knoc
 	window.$mobile = $mobile;
     window.promise = p;
 	
-	binder.bindingComplete = function (data, view, instruction) {
+	//binder.bindingComplete = function (data, view, instruction) {
         //console.log("---------- bindingComplete --------");
         //if (data.__moduleId__ !== "viewmodels/shell")
             //$(view).trigger('refresh');
 		//$('#applicationHost').trigger('pagecreate');
-    };
+    //};
 		
     return app.start()
     .then(function() {

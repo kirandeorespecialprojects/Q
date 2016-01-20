@@ -8,7 +8,10 @@ define(function(require) {
         };
 
         this.configureRoutes = function(){
-            var routes = [{ route: '', title:'Home', moduleId: 'viewmodels/home', nav: true }
+            var routes = [
+					{ route: '', title:'Home', moduleId: 'viewmodels/home', nav: true },
+					{ route: 'search', title:'Search', moduleId: 'viewmodels/search', nav: true },
+					{ route: 'profile', title:'Profile', moduleId: 'viewmodels/profile', nav: true }
                 ];
 
             router.map(routes).buildNavigationModel();
@@ -25,7 +28,11 @@ define(function(require) {
         },
         compositionComplete: function(){
 			$('[data-role="navbar"]').navbar();
-        }
+		},
+		goto: function(route){
+			console.log(route);
+			router.navigate(route);
+		}
     }
 
     return new shell();

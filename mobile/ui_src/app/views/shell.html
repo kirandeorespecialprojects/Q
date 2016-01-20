@@ -3,15 +3,24 @@
 		<h1 class="ui-title" role="heading" aria-level="1">Rent it now</h1>
 		<div id="navbar" data-role="navbar">
 			<ul>
-				<li><a href="#" data-icon="home"></a></li>
-				<li><a href="#" data-icon="search"></a></li>
-				<li><a href="#" data-icon="bars"></a></li>
+				<li>
+					<!--<a data-bind="attr : { href : router.navigationModel()[0].hash }" data-icon="home"></a>-->
+					<button class="ui-btn" data-icon="home" data-bind="click: function(data, event){ goto(router.navigationModel()[0].route) }"></button>
+				</li>
+				<li>
+					<!--<a data-bind="attr : { href : router.navigationModel()[1].hash }" data-icon="search"></a>-->
+					<button class="ui-btn" data-icon="search" data-bind="click: function(data, event) { goto(router.navigationModel()[1].route) }"></button>
+				</li>
+				<li>
+					<!--<a data-bind="attr : { href : router.navigationModel()[2].hash }" data-icon="bars"></a>-->
+					<button class="ui-btn" data-icon="bars" data-bind="click: function(data, event){ goto(router.navigationModel()[2].route) }"></button>
+				</li>
 			</ul>
 		</div><!-- /navbar -->
 	</div><!-- /header -->
 
 	<div role="main" class="ui-content">
-		<div class="page-host" data-bind="router: { transition:'entrance'}"></div>
+		<div class="page-host" data-bind="router: { }"></div>
 	</div>
 
 	<div data-role="footer">
