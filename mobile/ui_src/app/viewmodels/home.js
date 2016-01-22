@@ -24,6 +24,15 @@ define(function(require) {
 					  fclick: self.navigateTo(this.url)
 					},
 					{
+					  url: "#profile",
+					  bgcolor: "#DB4A39",
+					  color: "#fffff",
+					  icon: "<i class='fa fa-google-plus'></i>",
+					  //"target":"_blank",
+					  text: 'Go to profile',
+					  fclick: self.navigateTo(this.url)
+					},
+					{
 					  url: "#search",
 					  bgcolor: "red",
 					  color: "#fffff",

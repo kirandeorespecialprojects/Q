@@ -33,7 +33,7 @@
                 for (var n = 0; n < o.links.length; n++) {
                 	color_style = o.links[n].color ? "color:" + o.links[n].color + ";" : "", 
                 	bg_color_style = o.links[n].bgcolor ? "background-color:" + o.links[n].bgcolor + ";" : "", 
-                	sub_fab_btns_dom += "<div style='text-align:right;'><span style='display:inline-block;padding-right:10px;'>" + (o.links[n].text ? o.links[n].text : "") + "</span><span style='display:inline-block;'><button data-link-href='" + (o.links[n].url ? o.links[n].url : "") + "' data-link-target='" + (o.links[n].target ? o.links[n].target : "") + "' class='sub_fab_btn' style='" + bg_color_style + "'><span style='" + color_style + "'>" + o.links[n].icon + "</span></button></span></div>";
+                	sub_fab_btns_dom += "<div style='text-align:right;'><span style='display:inline-block;padding-right:10px;'>" + (o.links[n].text ? o.links[n].text : "") + "</span><span style='display:inline-block;vertical-align: -moz-middle-with-baseline;'><button data-link-href='" + (o.links[n].url ? o.links[n].url : "") + "' data-link-target='" + (o.links[n].target ? o.links[n].target : "") + "' class='sub_fab_btn' style='" + bg_color_style + "'><span style='" + color_style + "'>" + o.links[n].icon + "</span></button></span></div>";
                 }
                 
                 sub_fab_btns_dom = "<div class='sub_fab_btns_wrapper'>" + sub_fab_btns_dom + "</div>", o.$el.append(sub_fab_btns_dom).append(main_btn_dom)
