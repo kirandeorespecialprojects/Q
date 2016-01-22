@@ -9,6 +9,7 @@ requirejs.config({
         //'bootstrap': '../lib/bootstrap/js/bootstrap',
         'jquery': '../lib/jquery/jquery.min',
 		'jquery.mobile': '../lib/jquery.mobile/jquery.mobile-1.4.5.min',
+        'kc': '../lib/kc.fab/kc.fab',
         //'jqueryMigrate': '../lib/jquery/jquery-migrate-1.2.1.min',
         //'jqueryui': '../lib/jquery-ui/jquery-ui-1.10.3.custom.min',
         //'bootstrapHoverDropdown': '../lib/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min',
@@ -49,7 +50,10 @@ requirejs.config({
         //'appScript': 'app'
     },
     shim: {
-        
+        'kc': {
+            deps: ['jquery'],
+            exports: 'jQuery'
+       }
     }
 });
 
@@ -72,7 +76,7 @@ define('main', ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'knoc
     //>>excludeStart("build", true);
     system.debug(true);
     //>>excludeEnd("build");
-    app.title = 'Rent it';
+    app.title = 'title';
 
     app.configurePlugins({
         router:true,
