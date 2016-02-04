@@ -1,15 +1,19 @@
 requirejs.config({
     paths: {
-        'text': '../lib/require/text',
-        'durandal':'../lib/durandal',
-        'plugins' : '../lib/durandal/plugins',
-        'transitions' : '../lib/durandal/transitions',
-        'knockout': '../lib/knockout/dist/knockout.debug',
+        text: '../lib/require/text',
+        durandal:'../lib/durandal',
+        plugins : '../lib/durandal/plugins',
+        transitions : '../lib/durandal/transitions',
+        knockout: '../lib/knockout/dist/knockout.debug',
         'knockout.validation': '../lib/knockout.validation/knockout.validation',
         //'bootstrap': '../lib/bootstrap/js/bootstrap',
-        'jquery': '../lib/jquery/jquery.min',
+        jquery: '../lib/jquery/jquery.min',
+        'jquery.ui': '../lib/jquery.ui/jquery-ui.min',
 		'jquery.mobile': '../lib/jquery.mobile/jquery.mobile-1.4.5.min',
-        'kc': '../lib/kc.fab/kc.fab',
+        Waves: '../lib/waves/waves.min',
+        wow: '../lib/wow/wow.min',
+        kc: '../lib/kc.fab/kc.fab',
+        nativedroid2 : '../lib/nativedroid2',
         //'jqueryMigrate': '../lib/jquery/jquery-migrate-1.2.1.min',
         //'jqueryui': '../lib/jquery-ui/jquery-ui-1.10.3.custom.min',
         //'bootstrapHoverDropdown': '../lib/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min',
@@ -18,7 +22,7 @@ requirejs.config({
         //'cropper': '../lib/jcropper/cropper.min',
         //'uniform': '../lib/uniform/jquery.uniform.min',
         //'storage': '../app/classes/storageManager',
-        'promise': '../lib/pollyfills/es6-promise/es6-promise.min',
+        promise: '../lib/pollyfills/es6-promise/es6-promise.min',
         //'services' : '../app/classes/services',
         
         //'lodash' : '../lib/lodash/lodash',
@@ -50,10 +54,17 @@ requirejs.config({
         //'appScript': 'app'
     },
     shim: {
-        'kc': {
+       kc: {
             deps: ['jquery'],
             exports: 'jQuery'
-       }
+       },
+       wow: {
+            deps: [],
+            exports: 'wow'
+       }//,
+       // nativedroid2: {
+       //       deps: ['jquery', 'Waves']
+       // }
     }
 });
 
@@ -72,46 +83,66 @@ requirejs.config({
 //     }
 // );
 
-define('main', ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'knockout', 'knockout.validation','jquery', 'jquery.mobile', 'promise', 'plugins/router', 'durandal/binder'],  function (system, app, viewLocator, ko, kovalidation, $, $mobile, p, router, binder) {
-    //>>excludeStart("build", true);
-    system.debug(true);
-    //>>excludeEnd("build");
-    app.title = 'title';
+define('main', ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'knockout', 'knockout.validation','jquery' /*,'jquery.mobile'*/, 'promise', 'plugins/router', 'durandal/binder', 'jquery.ui', 'Waves'/*, 'wow' ,'nativedroid2'*/],  function (system, app, viewLocator, ko, kovalidation, $ /*, $mobile*/, p, router, binder, jqueryui, waves/*, wow , nativedroid2*/) {
 
-    app.configurePlugins({
-        router:true,
-        dialog: true,
-        widget: true
-    });
+        $(document).bind("mobileinit", function() {
+                console.log("### Config loaded...");
+                $.mobile.ajaxEnabled = false;
+                $.mobile.linkBindingEnabled = false;
+                $.mobile.hashListeningEnabled = false;
+                $.mobile.pushStateEnabled = false;
+                
+                $.mobile.buttonMarkup.hoverDelay = 100;
+                
+                $.mobile.autoInitializePage = false;
+                //$.mobile.page.prototype.options.domCache = false;
+            });
 
-    p.polyfill();
+    //document.addEventListener('deviceready', function(){ setTimeout(onDeviceReady, 500);
+    //function onDeviceReady(){
+        //>>excludeStart("build", true);
+        system.debug(true);
+        //>>excludeEnd("build");
+        app.title = 'title';
 
-    ko.validation = kovalidation;
-    ko.validation.init({
-        insertMessages: false,
-        errorsAsTitle: false,
-        messagesOnModified: true
-    });
+        app.configurePlugins({
+            router:true,
+            dialog: true,
+            widget: true
+        });
 
-    window.ko = ko;
-    window.$ = $;
-	window.$mobile = $mobile;
-    window.promise = p;
-	
-	//binder.bindingComplete = function (data, view, instruction) {
-        //console.log("---------- bindingComplete --------");
-        //if (data.__moduleId__ !== "viewmodels/shell")
-            //$(view).trigger('refresh');
-		//$(view).enhanceWithin();
-    //};
-		
-    return app.start()
-    .then(function() {
-        //Replace 'viewmodels' in the moduleId with 'views' to locate the view.
-        //Look for partial views in a 'views' folder in the root.
-        viewLocator.useConvention();
+        p.polyfill();
 
-        //Show the app by setting the root view model for our application with a transition.
-        app.setRoot('viewmodels/shell', 'entrance');
-    });
+        ko.validation = kovalidation;
+        ko.validation.init({
+            insertMessages: false,
+            errorsAsTitle: false,
+            messagesOnModified: true
+        });
+
+        window.ko = ko;
+        window.$ = $;
+    	//window.$mobile = $mobile;
+        window.promise = p;
+    	
+    	binder.bindingComplete = function (data, view, instruction) {
+            //console.log("---------- bindingComplete --------");
+            //if (data.__moduleId__ !== "viewmodels/shell")
+                //$(view).trigger('refresh');
+    		//$(view).enhanceWithin();
+
+            //console.warn($( "body" ).pagecontainer( "getActivePage" ));
+        };
+
+        return app.start()
+        .then(function() {
+            //Replace 'viewmodels' in the moduleId with 'views' to locate the view.
+            //Look for partial views in a 'views' folder in the root.
+            viewLocator.useConvention();
+
+            //Show the app by setting the root view model for our application with a transition.
+            app.setRoot('viewmodels/shell', 'entrance');
+        });
+
+    //}});;
 });

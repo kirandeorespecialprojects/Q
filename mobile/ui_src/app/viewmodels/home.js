@@ -1,58 +1,55 @@
 define(function(require) {
-	require('kc');
-    var router = require('plugins/router');
+	//require('kc');
+    var router = require('plugins/router'),
+    	leftPanelHtml = require('text!views/panel.left.html');
 	
-    return {
-    	navigateTo: function(route){
-    		router.navigate(route);
-    	},
-		attached : function(view, parent, settings){
-			var self = this;
+    var home = function(){
 
-			var links = [
-					{
-					  "bgcolor":"#03A9F4",
-					  "icon":"+"
-					},
-					{
-					  url: "#profile",
-					  bgcolor: "#DB4A39",
-					  color: "#fffff",
-					  icon: "<i class='fa fa-google-plus'></i>",
-					  //"target":"_blank",
-					  text: 'Go to profile',
-					  fclick: self.navigateTo(this.url)
-					},
-					{
-					  url: "#profile",
-					  bgcolor: "#DB4A39",
-					  color: "#fffff",
-					  icon: "<i class='fa fa-google-plus'></i>",
-					  //"target":"_blank",
-					  text: 'Go to profile',
-					  fclick: self.navigateTo(this.url)
-					},
-					{
-					  url: "#search",
-					  bgcolor: "red",
-					  color: "#fffff",
-					  icon: "<i class='fa fa-youtube'></i>",
-					  //"target":"_blank",
-					  text: 'Go to search',
-					  fclick: self.navigateTo(this.url)
-					},
-					{
-					  url: "http://www.facebook.com",
-					  bgcolor: "#3B5998",
-					  color: "#fffff",
-					  icon: "<i class='fa fa-facebook'></i>",
-					  //"target":"_blank",
-					  text: 'facebook',
-					  fclick: self.navigateTo(this.url)
-					}
-				];
+    };
 
-			$('.kc_fab_wrapper').kc_fab(links);
-		}
-	};
+    home.prototype.activate = function(first_argument) {
+    	//this.observableHTML('panel.left.html');
+    };
+
+    home.prototype.attached = function(view, parent) {
+    	//this.observableHTML('panel.left.html');
+    		//$.mobile.initializePage();
+    		//$(view).page();
+    		//this.view = view;
+    		//$(view).addClass('ui-page-active');
+    		//if($( "#leftpanel" ).length > 0){ //$('div[data-view="views/home"]')
+            //    console.log("present", $( "#leftpanel" ).length);
+                //$( "#leftpanel" ).panel("open");
+                //$(view).page();
+                //$( "#leftpanel" ).panel({
+				//  create: function( event, ui ) { alert('chung');}
+				//});
+            //}
+    };
+
+    home.prototype.panelToggle = function() {
+    	$( "#leftpanel" ).panel("toggle");
+    };
+
+    home.prototype.compositionComplete = function(view, parent) {
+    	// $(view).on('pageinit', function() {
+    			
+			// });
+			$(view).page();
+			$(view).show();
+    		//$(view).trigger('create');
+			//$(view).enhanceWithin();
+			//$.mobile.changePage('mhome');
+    };
+
+    home.prototype.navto = function() {
+    	router.navigate('gallery');
+    };
+
+    home.prototype.deactivate = function() {
+    	//alert('tud tud dun dun tud dun dun');
+    	//$(this.view).removeClass('ui-page-active');
+    };
+
+    return home;
 });

@@ -10,30 +10,38 @@
 		<link rel="stylesheet" href="/vendor/wow/animate.css" />
 		<link rel="stylesheet" href="/css/nativedroid2.css" />
 
-		<meta name="mobile-web-app-capable" content="yes">
-	 	<meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+				<style>
+					/* Prevent FOUC */
+					body { opacity: 0; }
+				</style>
 
 	</head>
 	<body>
-		<!--<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+		<div data-role="page">
+
+			<nd2-include data-src="/examples/fragments/panel.left.html"></nd2-include>
+
+			<div data-role="header" data-position="fixed" class="wow fadeIn">
+				<a href="#leftpanel" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a>
+				<h1 class="wow fadeIn" data-wow-delay='0.4s'>Panels</h1>
+			</div>
+
+			<div role="main" class="ui-content wow fadeIn" data-inset="false" data-wow-delay="0.2s">
+
+				See example by clicking the bars on the top left.
+
+			</div>
+
+		</div>
+
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 		<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
 		<script src="/vendor/waves/waves.min.js"></script>
 		<script src="/vendor/wow/wow.min.js"></script>
-		<script src="/js/nativedroid2.js"></script>-->
-		<!--<script src="/nd2settings.js"></script>-->
-		<!--<div data-role="page" id="index"></div>-->
-		<div id="applicationHost">
-			Loading.......
-			<!--<div class="splash">
-			  <div class="message">
-				 
-			  </div>
-			  <i class="icon-spinner icon-2x icon-spin active"></i>
-		  	</div>-->
-		</div>
-		<script src="lib/require/require.js" data-main="app/main"></script>
+		<script src="/js/nativedroid2.js"></script>
+		<script src="/nd2settings.js"></script>
 
 	</body>
 </html>
