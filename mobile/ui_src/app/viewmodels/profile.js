@@ -3,29 +3,29 @@ define(function(require) {
     var router = require('plugins/router');
     require('nativedroid2');
 	
-    var gallery = function(){
+    var profile = function(){
         this.view;
     };
 
-    gallery.prototype.activate = function(first_argument) {
+    profile.prototype.activate = function(first_argument) {
         
     };
 
-    gallery.prototype.attached = function(view, parent){
+    profile.prototype.attached = function(view, parent){
          this.view = view;
            // $(view).addClass('ui-page-active');
             //$.mobile.initializePage();
     };
 
-    gallery.prototype.panelToggle = function() {
+    profile.prototype.panelToggle = function() {
         $(this.view).find("#leftpanel").panel("toggle");
     };
 
-    gallery.prototype.bottompanelToggle = function() {
+    profile.prototype.bottompanelToggle = function() {
         $(this.view).find("#bottomsheet").panel("toggle");
     };
 
-    gallery.prototype.compositionComplete = function(view, parent){
+    profile.prototype.compositionComplete = function(view, parent){
         // $(view).on('pageinit', function() {
                 
             // });
@@ -38,19 +38,19 @@ define(function(require) {
             //$.mobile.changePage('mgallery');
     };
 
-    gallery.prototype.navto = function(route){        
-            router.navigate(route);
+    profile.prototype.navto = function(){        
+            router.navigate('');
     };
 
-    gallery.prototype.detached = function(view, parent){
+    profile.prototype.detached = function(view, parent){
             $(view).page('destroy');
     };
 
-    gallery.prototype.deactivate = function(){
+    profile.prototype.deactivate = function(){
             //alert('tud tud dun dun tud dun dun');
             //$(this.view).removeClass('ui-page-active');
     };
 
 
-    return gallery;
+    return profile;
 });

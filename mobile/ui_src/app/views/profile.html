@@ -32,8 +32,7 @@
 			<ul data-role="listview" data-icon="false">
 				<li data-role="list-divider">
 					work
-					<a data-bind="click: function(data, event) { navto('') }" class="ui-btn ui-btn-raised clr-primary">Go to home</a>
-					<a data-bind="click: function(data, event) { navto('profile') }" class="ui-btn ui-btn-raised clr-primary">Go to profile</a>
+					<a data-bind="click: navto" class="ui-btn ui-btn-raised clr-primary">Go to home</a>
 				</li>
 			</ul>
 		</div>
@@ -41,7 +40,7 @@
 			<ul data-role="listview" data-icon="false">
 				<li data-role="list-divider">
 					work
-					
+					<a data-bind="click: navto" class="ui-btn ui-btn-raised clr-primary">Go to home</a>
 				</li>
 			</ul>
 		</div>

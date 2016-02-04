@@ -4,7 +4,7 @@ define(function(require) {
     	leftPanelHtml = require('text!views/panel.left.html');
 	
     var home = function(){
-
+        this.view;
     };
 
     home.prototype.activate = function(first_argument) {
@@ -12,6 +12,7 @@ define(function(require) {
     };
 
     home.prototype.attached = function(view, parent) {
+        this.view = view;
     	//this.observableHTML('panel.left.html');
     		//$.mobile.initializePage();
     		//$(view).page();
@@ -28,7 +29,11 @@ define(function(require) {
     };
 
     home.prototype.panelToggle = function() {
-    	$( "#leftpanel" ).panel("toggle");
+    	$(this.view).find("#leftpanel").panel("toggle");
+    };
+
+    home.prototype.bottompanelToggle = function() {
+        $(this.view).find("#bottomsheet").panel("toggle");
     };
 
     home.prototype.compositionComplete = function(view, parent) {
