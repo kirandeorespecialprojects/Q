@@ -477,7 +477,7 @@ code {
 }
 
 .nd2Tabs .nd2Tabs-active {
-	color: #ffffff;
+	color: rgba(0,0,0, 0.54) !important;
 	position: relative;
 }
 
@@ -1118,7 +1118,8 @@ html >body .ui-rangeslider .ui-rangeslider-sliders .ui-slider-track:first-child 
 }
 
 .nd2-search-active .ui-title,
-.nd2-search-active .ui-btn {
+.nd2-search-active .ui-btn,
+.nd2-search-active .nd2Tabs {
 	display: none;
 }
 

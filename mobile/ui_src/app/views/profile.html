@@ -6,28 +6,20 @@
 		<!-- ko compose: 'bottom.sheet.html'--><!--/ko-->		
 	</div>
 
-	<div data-role="header" data-position="fixed" class="wow fadeIn">
+	<div data-role="header" data-position="fixed" class="wow fadeIn" style="min-height: 113px;">
 		    <!-- <h1 class="wow fadeIn" data-wow-delay='0.4s'>B</h1> -->
-			<a data-bind="click: panelToggle" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s' style="padding:0px;"><i class="zmdi zmdi-menu"></i></a>
+			<!-- <a data-bind="click: panelToggle" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a> -->
 		 
-			<ul data-role="nd2tabs" data-swipe="true">
-				<li data-tab="work" data-tab-active="true" class="zmdi zmdi-home"></li>
-				<li data-tab="friends" class="zmdi zmdi-search"></li>
-				<li data-tab="offers" class="zmdi zmdi-local-offer"></li>
+			<h1 class="wow fadeIn" data-wow-delay='0.4s'>Search</h1>
+
+			<a data-bind="click: bottompanelToggle" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+			<ul data-role="nd2tabs" data-swipe="true" style="margin-left: 30px;">
+				<li data-tab="work" data-tab-active="true" class="zmdi zmdi-home" style="font-size:20px; color:inherit;"></li>
+				<li data-tab="offers" class="zmdi zmdi-local-offer" style="font-size:20px; color:inherit;"></li>
 			</ul>
-			<a data-bind="click: bottompanelToggle" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s' style="padding:0px;"><i class="zmdi zmdi-more-vert"></i></a>
-		
 	</div>
 
 	<div role="main" class="ui-content wow fadeIn" data-wow-delay="0.2s"  data-inset="false">
-		<div data-role="nd2tab" data-tab="friends">
-			<ul data-role="listview" data-icon="false">
-				<li data-role="list-divider">
-					Friends
-
-				</li>
-			</ul>
-		</div>
 		<div data-role="nd2tab" data-tab="work">
 			<ul data-role="listview" data-icon="false">
 				<li data-role="list-divider">
@@ -45,5 +37,7 @@
 			</ul>
 		</div>
 	</div>	
+
+	
 
 </div>

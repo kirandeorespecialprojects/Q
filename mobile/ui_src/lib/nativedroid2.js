@@ -538,14 +538,20 @@
             _self.activateSearch = function() {
                 _self.getHeader().addClass("nd2-search-active");
                 _self.getSearchInputObj().val('').focus();
+                _self.getHeader().css('min-height', '65px'); //custom fix
             };
 
             _self.hideSearch = function() {
                 _self.getHeader().removeClass("nd2-search-active");
+
             };
 
             _self.getHeader = function() {
                 return $("body").find(".ui-page-active div[data-role='header']").first();
+            };
+
+            _self.getUIwrapper = function() {
+                return $("body").find(".ui-page-active div[role='main']").first();
             };
 
             _self.getSearchInputObj = function() {
@@ -591,11 +597,16 @@
                             };
                         }
 
+                        //detach ul (custom code)
+                        ul.detach().appendTo(_self.getUIwrapper());
+
                         var icon = (typeof item.icon !== 'undefined') ? "<i class='zmdi zmdi-" + item.icon + "'></i>" : "<i class='zmdi zmdi-" + _self.options.defaultIcon + "'></i>";
                         return $("<li class='nd2-search-result-item'>")
                             .attr("data-value", item.value)
                             .append("<span class='icon'>" + icon + "</span><span class='term'>" + item.label + "</span>")
                             .appendTo(ul);
+
+                         //return  kk.prependTo(_self.getHeader().next());
                     };
 
 
@@ -614,9 +625,9 @@
                         header.append(_self.getSearchButton(0));
                     }
 
-                    header.css({
-                        'minHeight': header.height() + 'px'
-                    });
+                    // header.css({
+                    //     'minHeight': header.height() + 'px'
+                    // });
 
                     header.prepend(_self.getBackButton());
                     header.prepend(_self.getSearchInput());
