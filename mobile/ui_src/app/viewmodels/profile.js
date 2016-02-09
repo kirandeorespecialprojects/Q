@@ -13,6 +13,31 @@ define(function(require) {
 
     profile.prototype.attached = function(view, parent){
          this.view = view;
+         
+         $(view).page();
+         $(view).show();
+         $(this.view).addClass('ui-page-active');
+
+         $.nd2({
+            
+          });
+
+        var k = new $.nd2Search({
+          placeholder : "Search",   // Placeholder in the search field
+          defaultIcon : "globe-alt",  // optional: icon | null
+          source : [
+              {"label": "Afghanistan", "value": "AF"},
+              {"label": "Åland Islands", "value": "AX"},
+              {"label": "Albania", "value": "AL"},
+              {"label": "Algeria", "value": "DZ"}
+          ],   // autocomplete : option-source
+          fn : function(result) { // this function will be executed when a valid result item is selected
+            console.log('--- Your custom handling ---');
+            console.log('you picked: ');
+            console.log(result);
+          }
+        });
+         //$(view).page()
            // $(view).addClass('ui-page-active');
             //$.mobile.initializePage();
     };
@@ -28,48 +53,28 @@ define(function(require) {
     profile.prototype.compositionComplete = function(view, parent){
         // $(view).on('pageinit', function() {
                 
-            // });
+        // });
 
-            //$.mobile.initializePage();
-            //$(view).trigger('create');
-            //$(view).enhanceWithin();
-            $(view).page();
-            $(view).show();
-            $(this.view).addClass('ui-page-active');
+        //$.mobile.initializePage();
+        //$(view).trigger('create');
+        //$(view).enhanceWithin();
+        
 
-            $.nd2({
-                
-              });
-
-            var k = new $.nd2Search({
-              placeholder : "Search",   // Placeholder in the search field
-              defaultIcon : "globe-alt",  // optional: icon | null
-              source : [
-                  {"label": "Afghanistan", "value": "AF"},
-                  {"label": "Åland Islands", "value": "AX"},
-                  {"label": "Albania", "value": "AL"},
-                  {"label": "Algeria", "value": "DZ"}
-              ],   // autocomplete : option-source
-              fn : function(result) { // this function will be executed when a valid result item is selected
-                console.log('--- Your custom handling ---');
-                console.log('you picked: ');
-                console.log(result);
-              }
-            });
-            //$.mobile.changePage('mgallery');
+        
+        //$.mobile.changePage('mgallery');
     };
 
     profile.prototype.navto = function(){        
-            router.navigate('');
+        router.navigate('');
     };
 
     profile.prototype.detached = function(view, parent){
-            $(view).page('destroy');
+        $(view).page('destroy');
     };
 
     profile.prototype.deactivate = function(){
             //alert('tud tud dun dun tud dun dun');
-            $(this.view).removeClass('ui-page-active');
+        $(this.view).removeClass('ui-page-active');
     };
 
 

@@ -504,6 +504,7 @@
         $.nd2Search = function(options) {
 
             var _self = this;
+            var orginalHeaderHeight;
 
             _self.defaults = {
                 placeholder: "Search",
@@ -537,13 +538,11 @@
 
             _self.activateSearch = function() {
                 _self.getHeader().addClass("nd2-search-active");
-                _self.getSearchInputObj().val('').focus();
-                _self.getHeader().css('min-height', '65px'); //custom fix
+                _self.getSearchInputObj().val('').focus();   
             };
 
             _self.hideSearch = function() {
                 _self.getHeader().removeClass("nd2-search-active");
-
             };
 
             _self.getHeader = function() {
@@ -563,10 +562,20 @@
                     .on('click', '.nd2-search-button', function(e) {
                         e.preventDefault();
                         _self.activateSearch();
+
+                        if(!orginalHeaderHeight){
+                            orginalHeaderHeight = _self.getHeader().css('min-height');
+                        }
+
+                        _self.getHeader().css('min-height', '65px'); //custom fix
                     })
                     .on('click', '.nd2-search-back-button', function(e) {
                         e.preventDefault();
                         _self.hideSearch();
+
+                        if(orginalHeaderHeight){
+                            _self.getHeader().css('min-height', orginalHeaderHeight);
+                        }
                     });
 
                 _self.bindAutocomplete();

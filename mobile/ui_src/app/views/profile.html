@@ -1,12 +1,16 @@
 <div data-role="page" data-transition="slide">
-	<!-- ko compose: 'panel.left.html' --><!--/ko-->
+	<!-- k compose: 'panel.left.html' --><!--/k-->
 
 
 	<div data-role="panel" id="bottomsheet" data-animate="false" data-position='bottom' data-display="overlay">
 		<!-- ko compose: 'bottom.sheet.html'--><!--/ko-->		
 	</div>
 
-	<div data-role="header" data-position="fixed" class="wow fadeIn" style="min-height: 113px;">
+	<div data-role="header" data-position="fixed" class="wow fadeIn" style="min-height: 114px; position:fixed; 
+    z-index:2;
+    top:0; left:0;
+    width:100%;
+    padding:0;">
 		    <!-- <h1 class="wow fadeIn" data-wow-delay='0.4s'>B</h1> -->
 			<!-- <a data-bind="click: panelToggle" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a> -->
 		 
@@ -14,13 +18,13 @@
 
 			<a data-bind="click: bottompanelToggle" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
 			<ul data-role="nd2tabs" data-swipe="true" style="margin-left: 30px;">
-				<li data-tab="work" data-tab-active="true" class="zmdi zmdi-home" style="font-size:20px; color:inherit;"></li>
+				<li data-tab="work" data-tab-active="true" class="zmdi zmdi-home nd2Tabs-active" style="font-size:20px; color:inherit;"></li>
 				<li data-tab="offers" class="zmdi zmdi-local-offer" style="font-size:20px; color:inherit;"></li>
 			</ul>
 	</div>
 
 	<div role="main" class="ui-content wow fadeIn" data-wow-delay="0.2s"  data-inset="false">
-		<div data-role="nd2tab" data-tab="work">
+		<div data-role="nd2tab" data-tab="work" >
 			<ul data-role="listview" data-icon="false">
 				<li data-role="list-divider">
 					work
@@ -38,6 +42,31 @@
 		</div>
 	</div>	
 
-	
+	<div data-role="footer" data-position="fixed" style="position:fixed; 
+    z-index:2;
+    bottom:0; left:0;
+    width:100%;
+    padding:0;">
+
+		<div class="row center-xs">
+			<div class="col-xs-4">
+				<div class="box">
+					<a href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-edit'></i> edit</a>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="box">
+					<a href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-plus'></i> add</a>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="box">
+					<a href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-minus'></i> remove</a>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
 
 </div>
