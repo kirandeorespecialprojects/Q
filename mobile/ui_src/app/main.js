@@ -1,12 +1,12 @@
 requirejs.config({
     paths: {
         text: '../lib/require/text',
+        css: '../lib/require/css.min',
         durandal:'../lib/durandal',
         plugins : '../lib/durandal/plugins',
-        transitions : '../lib/durandal/transitions',
+        //transitions : '../lib/durandal/transitions',
         knockout: '../lib/knockout/dist/knockout.debug',
         'knockout.validation': '../lib/knockout.validation/knockout.validation',
-        //'bootstrap': '../lib/bootstrap/js/bootstrap',
         jquery: '../lib/jquery/jquery.min',
         'jquery.ui': '../lib/jquery.ui/jquery-ui.min',
 		'jquery.mobile': '../lib/jquery.mobile/jquery.mobile-1.4.5.min',
@@ -14,74 +14,29 @@ requirejs.config({
         wow: '../lib/wow/wow.min',
         kc: '../lib/kc.fab/kc.fab',
         nativedroid2 : '../lib/nativedroid2',
-        //'jqueryMigrate': '../lib/jquery/jquery-migrate-1.2.1.min',
-        //'jqueryui': '../lib/jquery-ui/jquery-ui-1.10.3.custom.min',
-        //'bootstrapHoverDropdown': '../lib/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min',
-        //'slimscroll': '../lib/jquery-slimscroll/jquery.slimscroll.min',
-        //'blockui': '../lib/blockUI/jquery.blockui.min',
-        //'cropper': '../lib/jcropper/cropper.min',
-        //'uniform': '../lib/uniform/jquery.uniform.min',
-        //'storage': '../app/classes/storageManager',
         promise: '../lib/pollyfills/es6-promise/es6-promise.min',
-        //'services' : '../app/classes/services',
-        
-        //'lodash' : '../lib/lodash/lodash',
-        //'datepicker' : '../lib/bootstrap-datepicker/js/bootstrap-datepicker',
-        //'mixitup' : '../lib/jquery-mixitup/jquery.mixitup.min',
-        //'toBlob' : '../lib/pollyfills/toBlob/canvas-to-blob.min',
-        //'ckeditor' : '../lib/ckeditor/ckeditor', //http://cdn.ckeditor.com/4.5.2/standard-all/ckeditor
-        //'googlecalendar': '../lib/fullCalendar/gcal',
-        //'moment': '../lib/moment/moment.min',
-        //'fullcalendar': '/lib/fullCalendar/fullcalendar.min',
-        //'mapapi' : 'http://maps.google.com/maps/api/js?sensor=true',
-        //'gmapsjs' : '../lib/gmaps/gmaps',
-
-        //async : '../lib/requirejs-plugins/src/async',   
-        //font: '../lib/requirejs-plugins/src/font',  
-        //goog: '../lib/requirejs-plugins/src/goog',  
-        //image: '../lib/requirejs-plugins/src/image',  
-        //json: '../lib/requirejs-plugins/src/json',  
-        //noext: '../lib/requirejs-plugins/src/noext',  
-        //mdown: '../lib/requirejs-plugins/src/mdown',  
-        //propertyParser : '../lib/requirejs-plugins/src/propertyParser',  
-        //markdownConverter : '../lib/requirejs-plugins/src/mdown',  
-
-        /**
-          Jade compiler and custom view engine next two lines
-        **/
-        //'jade': ['../lib/jade-0.35.0', '../lib/jade'],
-        //'durandal/viewEngine': '../lib/durandal/js/jadeViewEngine',
-        //'appScript': 'app'
     },
     shim: {
        kc: {
             deps: ['jquery'],
             exports: 'jQuery'
        },
+       Waves: {
+            deps: ['css!../lib/waves/waves.min.css'],
+            exports: 'Waves'
+       },
        wow: {
-            deps: [],
+            deps: ['css!../lib/wow/animate.css'],
             exports: 'wow'
-       }//,
-       // nativedroid2: {
-       //       deps: ['jquery', 'Waves']
-       // }
+       },
+       nativedroid2: {
+             deps: ['css!../css/nativedroid2.css']
+       },
+       'jquery.mobile': {
+             deps: ['css!../lib/jquery.mobile/jquery.mobile.min.css', 'css!../css/font-awesome.min.css']
+       }
     }
 });
-
-//use plugins as if they were at baseUrl
-// define([
-//         'image!awsum.jpg',
-//         'json!data/foo.json',
-//         'noext!js/bar.php',
-//         'mdown!data/lorem_ipsum.md',
-//         'async!http://maps.google.com/maps/api/js?sensor=false',
-//         'goog!visualization,1,packages:[corechart,geochart]',
-//         'goog!search,1',
-//         'font!google,families:[Tangerine,Cantarell]'
-//     ], function(awsum, foo, bar, loremIpsum){
-//         //all dependencies are loaded (including gmaps and other google apis)
-//     }
-// );
 
 define('main', ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'knockout', 'knockout.validation','jquery' /*,'jquery.mobile'*/, 'promise', 'plugins/router', 'durandal/binder', 'jquery.ui', 'Waves', 'wow' /*,'nativedroid2'*/],  function (system, app, viewLocator, ko, kovalidation, $ /*, $mobile*/, p, router, binder, jqueryui, waves, wow /*, nativedroid2*/) {
 
@@ -141,7 +96,7 @@ define('main', ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'knoc
             viewLocator.useConvention();
 
             //Show the app by setting the root view model for our application with a transition.
-            app.setRoot('viewmodels/shell', 'entrance');
+            app.setRoot('viewmodels/shell');
         });
 
     //}});;

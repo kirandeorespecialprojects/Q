@@ -17,9 +17,10 @@ define(function(require) {
 
         this.configureRoutes = function(){
             var routes = [
-					{ route: '', title:'Home', moduleId: 'viewmodels/home', nav: true },
+					{ route: '', title:'Home', moduleId: 'viewmodels/profile', nav: true },
                     { route: 'gallery', title:'Gallery', moduleId: 'viewmodels/gallery', nav: true },
-					{ route: 'profile', title:'Profile', moduleId: 'viewmodels/profile', nav: true }
+					{ route: 'profile', title:'Profile', moduleId: 'viewmodels/home', nav: true },
+                    { route: 'additem', title:'Add Item', moduleId: 'viewmodels/additem', nav: true }
                 ];
 
             router.map(routes).buildNavigationModel();

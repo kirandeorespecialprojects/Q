@@ -15,7 +15,7 @@ define(function(require) {
          this.view = view;
          
          $(view).page();
-         $(view).show();
+         //$(view).show();
          $(this.view).addClass('ui-page-active');
 
          $.nd2({

@@ -525,11 +525,11 @@
             };
 
             _self.getSearchButton = function(offset) {
-                return "<a href='#' class='ui-btn ui-btn-right wow fadeIn nd2-search-button' style='margin-right: " + offset + "px;' data-wow-delay='1s'><i class='zmdi zmdi-search'></i></a>";
+                return "<a href='#' class='ui-btn ui-btn-right wow nd2-search-button' style='margin-right: " + offset + "px;' data-wow-delay='1s'><i class='zmdi zmdi-search'></i></a>";
             };
 
             _self.getBackButton = function() {
-                return "<a href='#' class='ui-btn ui-btn-left wow fadeIn nd2-search-back-button' data-wow-delay='0.2s'><i class='zmdi zmdi-arrow-back'></i></a>";
+                return "<a href='#' class='ui-btn ui-btn-left nd2-search-back-button'><i class='zmdi zmdi-arrow-back'></i></a>";
             };
 
             _self.getSearchInput = function() {
@@ -553,6 +553,10 @@
                 return $("body").find(".ui-page-active div[role='main']").first();
             };
 
+            _self.getPage = function() {
+                return $("body").find(".ui-page-active").first();
+            };
+
             _self.getSearchInputObj = function() {
                 return _self.getHeader().find('.nd2-search-input');
             };
@@ -568,6 +572,7 @@
                         }
 
                         _self.getHeader().css('min-height', '65px'); //custom fix
+                        _self.getPage().css('padding-top', '65px');
                     })
                     .on('click', '.nd2-search-back-button', function(e) {
                         e.preventDefault();
@@ -575,6 +580,7 @@
 
                         if(orginalHeaderHeight){
                             _self.getHeader().css('min-height', orginalHeaderHeight);
+                            _self.getPage().css('padding-top', orginalHeaderHeight);
                         }
                     });
 

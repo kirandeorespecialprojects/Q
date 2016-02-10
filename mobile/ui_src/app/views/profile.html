@@ -11,15 +11,14 @@
     top:0; left:0;
     width:100%;
     padding:0;">
-		    <!-- <h1 class="wow fadeIn" data-wow-delay='0.4s'>B</h1> -->
-			<!-- <a data-bind="click: panelToggle" class="ui-btn ui-btn-left wow fadeIn" data-wow-delay='0.8s'><i class="zmdi zmdi-menu"></i></a> -->
-		 
+		    
 			<h1 class="wow fadeIn" data-wow-delay='0.4s'>Search</h1>
 
 			<a data-bind="click: bottompanelToggle" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
 			<ul data-role="nd2tabs" data-swipe="true" style="margin-left: 30px;">
 				<li data-tab="work" data-tab-active="true" class="zmdi zmdi-home nd2Tabs-active" style="font-size:20px; color:inherit;"></li>
-				<li data-tab="offers" class="zmdi zmdi-local-offer" style="font-size:20px; color:inherit;"></li>
+				<li data-tab="offers" class="zmdi zmdi-favorite" style="font-size:20px; color:inherit;"></li>
+				<li data-tab="notifications" class="zmdi zmdi-notifications" style="font-size:20px; color:inherit;"></li>
 			</ul>
 	</div>
 
@@ -31,14 +30,91 @@
 					<a data-bind="click: navto" class="ui-btn ui-btn-raised clr-primary">Go to home</a>
 				</li>
 			</ul>
+
+			<div class="nd2-card">
+
+					<div class="card-media">
+						<img src="/img/examples/card_bg_3.jpg">
+					</div>
+
+					<div class="card-action">
+						<div class="row between-xs">
+							<div class="col-xs-12 align-right">
+								<div class="box">
+									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-favorite'></i></a>
+									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-bookmark'></i></a>
+									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-mail-reply zmd-flip-horizontal'></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="nd2-card">
+
+					<div class="card-media">
+						<img src="/img/examples/card_bg_3.jpg">
+					</div>
+
+					<div class="card-action">
+						<div class="row between-xs">
+							<div class="col-xs-12 align-right">
+								<div class="box">
+									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-favorite'></i></a>
+									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-bookmark'></i></a>
+									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-mail-reply zmd-flip-horizontal'></i></a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
 		</div>
 		<div data-role="nd2tab" data-tab="offers">
 			<ul data-role="listview" data-icon="false">
 				<li data-role="list-divider">
-					work
+					offers
 					<a data-bind="click: navto" class="ui-btn ui-btn-raised clr-primary">Go to home</a>
 				</li>
 			</ul>
+
+			<div class="nd2-card">
+
+					<div class="card-title has-avatar">
+						<img class="card-avatar" src="//lorempixel.com/200/200/people/9/">
+						<h3 class="card-primary-title">Power of Lavender</h3>
+						<h5 class="card-subtitle">Taken in Provence, France</h5>
+					</div>
+
+					<div class="card-media">
+						<img src="/img/examples/card_bg_2.jpg">
+					</div>
+
+					<div class="card-supporting-text has-action">
+						<strong>Lavandula</strong> (common name lavender) is a genus of 39 known species of flowering plants in the mint family, Lamiaceae. It is native to the Old World and is found from Cape Verde and the Canary Islands, southern Europe across to northern and eastern Africa, the Mediterranean, southwest Asia to southeast India.
+					</div>
+
+					<div class="card-action">
+						<div class="row between-xs">
+							<div class="col-xs-5">
+								<div class="box">
+									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-mic'></i></a>
+									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-videocam'></i></a>
+								</div>
+							</div>
+							<div class="col-xs-7 align-right">
+								<div class="box">
+									<a href="#" class="ui-btn ui-btn-inline">Action</a>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+		</div>
+		<div data-role="nd2tab" data-tab="notifications" >
+			notifications
 		</div>
 	</div>	
 
@@ -49,19 +125,14 @@
     padding:0;">
 
 		<div class="row center-xs">
-			<div class="col-xs-4">
+			<div class="col-xs-6">
 				<div class="box">
-					<a href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-edit'></i> edit</a>
+					<a href="#additem" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-plus'></i> add item</a>
 				</div>
 			</div>
-			<div class="col-xs-4">
+			<div class="col-xs-6">
 				<div class="box">
-					<a href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-plus'></i> add</a>
-				</div>
-			</div>
-			<div class="col-xs-4">
-				<div class="box">
-					<a href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-minus'></i> remove</a>
+					<a href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-minus'></i> my items</a>
 				</div>
 			</div>
 		</div>
