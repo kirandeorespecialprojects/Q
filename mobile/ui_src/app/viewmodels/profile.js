@@ -8,20 +8,7 @@ define(function(require) {
     };
 
     profile.prototype.activate = function(first_argument) {
-        
-    };
-
-    profile.prototype.attached = function(view, parent){
-         this.view = view;
-         
-         $(view).page();
-         //$(view).show();
-         $(this.view).addClass('ui-page-active');
-
-         $.nd2({
-            
-          });
-
+        $.nd2({});
         var k = new $.nd2Search({
           placeholder : "Search",   // Placeholder in the search field
           defaultIcon : "globe-alt",  // optional: icon | null
@@ -37,6 +24,19 @@ define(function(require) {
             console.log(result);
           }
         });
+    };
+
+    profile.prototype.attached = function(view, parent){
+         this.view = view;
+         
+         $(view).page();
+         //$(view).show();
+         $(this.view).addClass('ui-page-active');
+         $(this.view).find("#popupMenu2").popup();
+
+         
+
+        
          //$(view).page()
            // $(view).addClass('ui-page-active');
             //$.mobile.initializePage();
@@ -48,6 +48,10 @@ define(function(require) {
 
     profile.prototype.bottompanelToggle = function() {
         $(this.view).find("#bottomsheet").panel("toggle");
+    };
+
+    profile.prototype.openPopup = function() {
+        $(this.view).find("#popupMenu2").popup("open", {positionTo: '#optionButton'});
     };
 
     profile.prototype.compositionComplete = function(view, parent){

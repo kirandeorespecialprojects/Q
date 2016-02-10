@@ -525,7 +525,7 @@
             };
 
             _self.getSearchButton = function(offset) {
-                return "<a href='#' class='ui-btn ui-btn-right wow nd2-search-button' style='margin-right: " + offset + "px;' data-wow-delay='1s'><i class='zmdi zmdi-search'></i></a>";
+                return "<a href='#' class='ui-btn ui-btn-right nd2-search-button' style='margin-right: " + offset + "px;'><i class='zmdi zmdi-search'></i></a>";
             };
 
             _self.getBackButton = function() {

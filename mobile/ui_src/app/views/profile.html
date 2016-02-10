@@ -6,15 +6,20 @@
 		<!-- ko compose: 'bottom.sheet.html'--><!--/ko-->		
 	</div>
 
-	<div data-role="header" data-position="fixed" class="wow fadeIn" style="min-height: 114px; position:fixed; 
-    z-index:2;
-    top:0; left:0;
-    width:100%;
-    padding:0;">
+	<div data-role="header" data-position="fixed" class="wow fadeIn" style="min-height: 114px; position:fixed; z-index:2; top:0; left:0; width:100%; padding:0;">
 		    
-			<h1 class="wow fadeIn" data-wow-delay='0.4s'>Search</h1>
+			<h1 class="wow" data-wow-delay='0.4s'>Search</h1>
+			
+			<a data-bind="click: openPopup" data-rel="popup" id="optionButton" class="ui-btn ui-btn-right wow" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+			<div data-role="popup" id="popupMenu2">
+				<ul data-role="listview" data-inset="true" style="min-width:210px;">
+					<li><a href="#">My Profile</a></li>
+					<li><a href="#">Settings</a></li>
+					<li><a href="#">Exit</a></li>
+				</ul>
+			</div>
 
-			<a data-bind="click: bottompanelToggle" class="ui-btn ui-btn-right wow fadeIn" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
+			<!-- <a data-bind="click: bottompanelToggle" class="ui-btn ui-btn-right wow" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a> -->
 			<ul data-role="nd2tabs" data-swipe="true" style="margin-left: 30px;">
 				<li data-tab="work" data-tab-active="true" class="zmdi zmdi-home nd2Tabs-active" style="font-size:20px; color:inherit;"></li>
 				<li data-tab="offers" class="zmdi zmdi-favorite" style="font-size:20px; color:inherit;"></li>
@@ -23,6 +28,7 @@
 	</div>
 
 	<div role="main" class="ui-content wow fadeIn" data-wow-delay="0.2s"  data-inset="false">
+
 		<div data-role="nd2tab" data-tab="work" >
 			<ul data-role="listview" data-icon="false">
 				<li data-role="list-divider">
@@ -111,7 +117,7 @@
 						</div>
 					</div>
 
-				</div>
+			</div>
 		</div>
 		<div data-role="nd2tab" data-tab="notifications" >
 			notifications
@@ -132,7 +138,7 @@
 			</div>
 			<div class="col-xs-6">
 				<div class="box">
-					<a href="#" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-minus'></i> my items</a>
+					<a href="#myitems" class="ui-btn ui-mini nd2-btn-icon-block"><i class='zmdi zmdi-minus'></i> my items</a>
 				</div>
 			</div>
 		</div>
