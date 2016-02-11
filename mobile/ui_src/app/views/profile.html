@@ -11,7 +11,7 @@
 			<h1 class="wow" data-wow-delay='0.4s'>Search</h1>
 			
 			<a data-bind="click: openPopup" data-rel="popup" id="optionButton" class="ui-btn ui-btn-right wow" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a>
-			<div data-role="popup" id="popupMenu2">
+			<div data-role="popup" id="popupMenu2" data-overlay-theme="none">
 				<ul data-role="listview" data-inset="true" style="min-width:210px;">
 					<li><a href="#">My Profile</a></li>
 					<li><a href="#">Settings</a></li>
@@ -19,7 +19,7 @@
 				</ul>
 			</div>
 
-			<!-- <a data-bind="click: bottompanelToggle" class="ui-btn ui-btn-right wow" data-wow-delay='1.2s'><i class="zmdi zmdi-more-vert"></i></a> -->
+			<!-- <a data-bind="click: bottompanelToggle" class="ui-btn ui-btn-right wow" data-wow-delay='1.2s'><i  class="zmdi zmdi-more-vert"></i></a> -->
 			<ul data-role="nd2tabs" data-swipe="true" style="margin-left: 30px;">
 				<li data-tab="work" data-tab-active="true" class="zmdi zmdi-home nd2Tabs-active" style="font-size:20px; color:inherit;"></li>
 				<li data-tab="offers" class="zmdi zmdi-favorite" style="font-size:20px; color:inherit;"></li>
@@ -29,53 +29,111 @@
 
 	<div role="main" class="ui-content wow fadeIn" data-wow-delay="0.2s"  data-inset="false">
 
+
+
 		<div data-role="nd2tab" data-tab="work" >
-			<ul data-role="listview" data-icon="false">
-				<li data-role="list-divider">
-					work
-					<a data-bind="click: navto" class="ui-btn ui-btn-raised clr-primary">Go to home</a>
-				</li>
-			</ul>
-
-			<div class="nd2-card">
-
-					<div class="card-media">
-						<img src="/img/examples/card_bg_3.jpg">
+			<div class="row">
+				<div class="col-xs">
+					<div class="box">
+						work
+						<a data-bind="click: navto" class="ui-btn ui-btn-raised clr-primary">Go to home</a>
 					</div>
+				</div>
+			</div>
 
-					<div class="card-action">
-						<div class="row between-xs">
-							<div class="col-xs-12 align-right">
-								<div class="box">
-									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-favorite'></i></a>
-									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-bookmark'></i></a>
-									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-mail-reply zmd-flip-horizontal'></i></a>
+			<div class="row center-xs center-sm center-md center-lg around-xs around-sm around-md around-lg">
+				<div class="cell">
+						work
+						<a data-bind="click: navto" class="ui-btn ui-btn-raised clr-primary">Go to home</a>
+					
+				</div>
+			</div>
+
+			<div class="row center-xs center-sm center-md center-lg around-xs around-sm around-md around-lg" style="padding-left:5px; padding-right:5px;">
+				<div class="cell">
+					<div class="nd2-card">
+
+							<div class="card-media">
+								<img src="/img/examples/card_bg_3.jpg">
+							</div>
+
+							<div class="card-action">
+								<div class="row between-xs">
+									<div class="col-xs-12 align-right">
+										<div class="box">
+											<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-favorite'></i></a>
+											<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-bookmark'></i></a>
+											<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-mail-reply zmd-flip-horizontal'></i></a>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
 					</div>
-
 				</div>
 
-				<div class="nd2-card">
+				<div class="cell">
+					<div class="nd2-card">
 
-					<div class="card-media">
-						<img src="/img/examples/card_bg_3.jpg">
-					</div>
+							<div class="card-media">
+								<img src="/img/examples/card_bg_3.jpg">
+							</div>
 
-					<div class="card-action">
-						<div class="row between-xs">
-							<div class="col-xs-12 align-right">
-								<div class="box">
-									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-favorite'></i></a>
-									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-bookmark'></i></a>
-									<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-mail-reply zmd-flip-horizontal'></i></a>
+							<div class="card-action">
+								<div class="row between-xs">
+									<div class="col-xs-12 align-right">
+										<div class="box">
+											<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-favorite'></i></a>
+											<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-bookmark'></i></a>
+											<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-mail-reply zmd-flip-horizontal'></i></a>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
 					</div>
-
 				</div>
+				
+				<div class="cell">
+					<div class="nd2-card">
+
+							<div class="card-media">
+								<img src="/img/examples/card_bg_3.jpg">
+							</div>
+
+							<div class="card-action">
+								<div class="row between-xs">
+									<div class="col-xs-12 align-right">
+										<div class="box">
+											<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-favorite'></i></a>
+											<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-bookmark'></i></a>
+											<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-mail-reply zmd-flip-horizontal'></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+				
+				<div class="cell">
+					<div class="nd2-card">
+
+							<div class="card-media">
+								<img src="/img/examples/card_bg_3.jpg">
+							</div>
+
+							<div class="card-action">
+								<div class="row between-xs">
+									<div class="col-xs-12 align-right">
+										<div class="box">
+											<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-favorite'></i></a>
+											<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-bookmark'></i></a>
+											<a href="#" class="ui-btn ui-btn-inline ui-btn-fab"><i class='zmdi zmdi-mail-reply zmd-flip-horizontal'></i></a>
+										</div>
+									</div>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div data-role="nd2tab" data-tab="offers">
 			<ul data-role="listview" data-icon="false">
