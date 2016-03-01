@@ -4,7 +4,7 @@
 //http://stackoverflow.com/questions/6050384/dynamically-create-jquery-mobile-page-via-javascript-after-clicking
 
 define(function(require) {
-    require('jquery.mobile');
+    //require('jquery.mobile');
     //require('nativedroid2');
 
     var router = require('plugins/router'),

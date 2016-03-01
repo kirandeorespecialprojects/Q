@@ -1,4 +1,8 @@
 define(function(require) {
+	require('jquery.ui');
+	require('jquery.mobile');
+    require('Waves');
+    require('wow');
 	require('nativedroid2');
 
 	var additem = function(){
@@ -10,11 +14,25 @@ define(function(require) {
 	         this.view = view;
 	         
 	         $(view).page();
+	        
+	         // $(this.view).find('#currency').selectmenu({
+          //       create: function( event, ui ) {
+          //           console.log('yay');
+          //       }
+          //    });
+
 	         //$(view).show();
 	         $(this.view).addClass('ui-page-active');
-	         $.nd2({
+             
+             $.nd2({
             
           	 });
+     	},
+     	compositionComplete: function(){
+
+     		
+             
+       //       console.log($(this.view).find('#currency').length);
      	},
      	deactivate : function(){
 	            //alert('tud tud dun dun tud dun dun');

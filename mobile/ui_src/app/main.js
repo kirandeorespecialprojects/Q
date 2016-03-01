@@ -38,7 +38,44 @@ requirejs.config({
     }
 });
 
-define('main', ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'knockout', 'knockout.validation','jquery' /*,'jquery.mobile'*/, 'promise', 'plugins/router', 'durandal/binder', 'jquery.ui', 'Waves', 'wow' /*,'nativedroid2'*/],  function (system, app, viewLocator, ko, kovalidation, $ /*, $mobile*/, p, router, binder, jqueryui, waves, wow /*, nativedroid2*/) {
+define('main', function (require) {
+
+        var system = require('durandal/system'),
+         app = require('durandal/app'),
+         viewLocator = require('durandal/viewLocator'),
+         $ = require('jquery'),
+         ko = require('knockout'),
+         validation = require('knockout.validation'),
+         promise = require('promise'),
+         router = require('plugins/router'),
+         binder = require('durandal/binder'),
+         jqueryui = require('jquery.ui'),
+         jqmobile = require('jquery.mobile'),
+         waves = require('Waves'),
+         wow = require('wow'),
+         nativedroid2 = require('nativedroid2');
+
+         //ko.validation = kovalidation;
+         
+         window.$ = $;
+         window.jqueryui = jqueryui;
+         window.jqmobile = jqmobile;
+         window.waves = waves;
+         window.wow = wow;
+         window.nativedroid2 = nativedroid2;
+         ko.validation = validation;
+         window.ko = ko;
+         window.promise = promise;
+         
+         window.promise.polyfill();
+         window.ko.validation.init({
+            insertMessages: false,
+            errorsAsTitle: false,
+            messagesOnModified: true
+         });
+         
+
+// define('main', ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'knockout', 'knockout.validation','jquery' /*,'jquery.mobile'*/, 'promise', 'plugins/router', 'durandal/binder', 'jquery.ui', 'Waves', 'wow' /*,'nativedroid2'*/],  function (system, app, viewLocator, ko, kovalidation, $ /*, $mobile*/, p, router, binder, jqueryui, waves, wow /*, nativedroid2*/) {
 
         $(document).bind("mobileinit", function() {
                 console.log("### Config loaded...");
@@ -66,21 +103,7 @@ define('main', ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'knoc
             widget: true
         });
 
-        p.polyfill();
-
-        ko.validation = kovalidation;
-        ko.validation.init({
-            insertMessages: false,
-            errorsAsTitle: false,
-            messagesOnModified: true
-        });
-
-        window.ko = ko;
-        window.$ = $;
-    	//window.$mobile = $mobile;
-        window.promise = p;
-    	
-    	binder.bindingComplete = function (data, view, instruction) {
+        binder.bindingComplete = function (data, view, instruction) {
             //console.log("---------- bindingComplete --------");
             //if (data.__moduleId__ !== "viewmodels/shell")
                 //$(view).trigger('refresh');

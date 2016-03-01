@@ -1,7 +1,7 @@
 define(function(require) {
 	//require('kc');
     var router = require('plugins/router');
-    require('nativedroid2');
+    //require('nativedroid2');
 	
     var profile = function(){
         this.view;
@@ -32,7 +32,7 @@ define(function(require) {
          $(view).page();
          //$(view).show();
          $(this.view).addClass('ui-page-active');
-         $(this.view).find("#popupMenu2").popup();
+         //$(this.view).find("#popupMenu2").popup();
 
          
 
@@ -68,8 +68,8 @@ define(function(require) {
         //$.mobile.changePage('mgallery');
     };
 
-    profile.prototype.navto = function(){        
-        router.navigate('');
+    profile.prototype.navto = function(route){        
+        router.navigate(route);
     };
 
     profile.prototype.detached = function(view, parent){
