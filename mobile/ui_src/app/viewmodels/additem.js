@@ -1,34 +1,12 @@
 define(function(require) {
-	var router = require('plugins/router');
+	var page = require('viewmodels/page');
+	
 	var additem = function(){
-		this.view;
+		page.call(this, {});
 	};
 
-	additem.prototype = {
-		activate: function(){
-			 $.nd2({});
-			 console.info('additem activate');
-		},
-		attached : function(view, parent){
-	         this.view = view;
-	      	 console.info('additem attached');   
-	      	 $(this.view).addClass('ui-page-active');
-     	},
-     	compositionComplete: function(view, parent){
-     		$(view).page();//.trigger("create");
-     		$.mobile.initializePage();  
-     		//$('.page-host').pagecontainer('change', '#pages_additem'); 
-       		console.info('additem compositionComplete');  
-     	},
-     	deactivate : function(){
-	            //alert('tud tud dun dun tud dun dun');
-	        $(this.view).removeClass('ui-page-active');
-	        console.info('additem deactivate');
-	    },
-	    navto : function(route){        
-        	router.navigate(route);
-    	}
-	};
+	var _super = page.prototype;
+    additem.prototype = Object.create(_super);
 
 	return additem;
 });
