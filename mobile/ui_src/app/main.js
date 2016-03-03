@@ -9,7 +9,8 @@ requirejs.config({
         'knockout.validation': '../lib/knockout.validation/knockout.validation',
         jquery: '../lib/jquery/jquery.min',
         'jquery.ui': '../lib/jquery.ui/jquery-ui.min',
-		'jquery.mobile': '../lib/jquery.mobile/jquery.mobile-1.4.5.min',
+		'jquery.mobile': '../lib/jquery.mobile/jquery.mobile-1.4.5',
+        'jqm-conf' : '../lib/jquery.mobile/jqmconfig',
         Waves: '../lib/waves/waves.min',
         wow: '../lib/wow/wow.min',
         kc: '../lib/kc.fab/kc.fab',
@@ -32,8 +33,12 @@ requirejs.config({
        nativedroid2: {
              deps: ['css!../css/nativedroid2.css']
        },
+       'jqm-conf' : {
+            deps : ['jquery'],
+            exports: 'jqmConfig'
+        },
        'jquery.mobile': {
-             deps: ['css!../lib/jquery.mobile/jquery.mobile.min.css', 'css!../css/font-awesome.min.css']
+             deps: ['jqm-conf', 'css!../lib/jquery.mobile/jquery.mobile.min.css', 'css!../css/font-awesome.min.css']
        }
     }
 });
@@ -48,50 +53,42 @@ define('main', function (require) {
          validation = require('knockout.validation'),
          promise = require('promise'),
          router = require('plugins/router'),
-         binder = require('durandal/binder'),
-         jqueryui = require('jquery.ui'),
+         binder = require('durandal/binder');
+         
+         jqueryui = require('jquery.ui');
          jqmobile = require('jquery.mobile'),
-         waves = require('Waves'),
-         wow = require('wow'),
-         nativedroid2 = require('nativedroid2');
-
-         //ko.validation = kovalidation;
+         
          
          window.$ = $;
          window.jqueryui = jqueryui;
          window.jqmobile = jqmobile;
-         window.waves = waves;
-         window.wow = wow;
-         window.nativedroid2 = nativedroid2;
+         // window.waves = waves;
+         // window.wow = wow;
+         // window.nativedroid2 = nativedroid2;
+         
          ko.validation = validation;
          window.ko = ko;
          window.promise = promise;
          
+         // Load jQuery Mobile.
+         require(['jquery.mobile'], function(jqm) {
+            console.log("jQuery Mobile loaded...");
+         });
+
          window.promise.polyfill();
          window.ko.validation.init({
             insertMessages: false,
             errorsAsTitle: false,
             messagesOnModified: true
          });
-         
 
-// define('main', ['durandal/system', 'durandal/app', 'durandal/viewLocator', 'knockout', 'knockout.validation','jquery' /*,'jquery.mobile'*/, 'promise', 'plugins/router', 'durandal/binder', 'jquery.ui', 'Waves', 'wow' /*,'nativedroid2'*/],  function (system, app, viewLocator, ko, kovalidation, $ /*, $mobile*/, p, router, binder, jqueryui, waves, wow /*, nativedroid2*/) {
+        window.settings = ko.observable({ cacheViews: true });
+        window.setCacheViews = function(val){
+            window.settings({ cacheViews: val });
+        };
 
-        $(document).bind("mobileinit", function() {
-                console.log("### Config loaded...");
-                $.mobile.ajaxEnabled = false;
-                $.mobile.linkBindingEnabled = false;
-                $.mobile.hashListeningEnabled = false;
-                $.mobile.pushStateEnabled = false;
-                
-                $.mobile.buttonMarkup.hoverDelay = 100;
-                
-                $.mobile.autoInitializePage = false;
-                //$.mobile.page.prototype.options.domCache = false;
-            });
-
-    //document.addEventListener('deviceready', function(){ setTimeout(onDeviceReady, 500);
-    //function onDeviceReady(){
+        //document.addEventListener('deviceready', function(){ setTimeout(onDeviceReady, 500);
+        //function onDeviceReady(){
         //>>excludeStart("build", true);
         system.debug(true);
         //>>excludeEnd("build");
@@ -106,7 +103,7 @@ define('main', function (require) {
         binder.bindingComplete = function (data, view, instruction) {
             //console.log("---------- bindingComplete --------");
             //if (data.__moduleId__ !== "viewmodels/shell")
-                //$(view).trigger('refresh');
+            //    $(view).trigger('create');
     		//$(view).enhanceWithin();
 
             //console.warn($( "body" ).pagecontainer( "getActivePage" ));

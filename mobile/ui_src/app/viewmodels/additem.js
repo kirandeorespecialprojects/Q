@@ -1,43 +1,33 @@
 define(function(require) {
-	require('jquery.ui');
-	require('jquery.mobile');
-    require('Waves');
-    require('wow');
-	require('nativedroid2');
-
+	var router = require('plugins/router');
 	var additem = function(){
 		this.view;
 	};
 
 	additem.prototype = {
+		activate: function(){
+			 $.nd2({});
+			 console.info('additem activate');
+		},
 		attached : function(view, parent){
 	         this.view = view;
-	         
-	         $(view).page();
-	        
-	         // $(this.view).find('#currency').selectmenu({
-          //       create: function( event, ui ) {
-          //           console.log('yay');
-          //       }
-          //    });
-
-	         //$(view).show();
-	         $(this.view).addClass('ui-page-active');
-             
-             $.nd2({
-            
-          	 });
+	      	 console.info('additem attached');   
+	      	 $(this.view).addClass('ui-page-active');
      	},
-     	compositionComplete: function(){
-
-     		
-             
-       //       console.log($(this.view).find('#currency').length);
+     	compositionComplete: function(view, parent){
+     		$(view).page();//.trigger("create");
+     		$.mobile.initializePage();  
+     		//$('.page-host').pagecontainer('change', '#pages_additem'); 
+       		console.info('additem compositionComplete');  
      	},
      	deactivate : function(){
 	            //alert('tud tud dun dun tud dun dun');
 	        $(this.view).removeClass('ui-page-active');
-	    }
+	        console.info('additem deactivate');
+	    },
+	    navto : function(route){        
+        	router.navigate(route);
+    	}
 	};
 
 	return additem;

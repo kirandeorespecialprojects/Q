@@ -1,13 +1,35 @@
 define(function(require) {
-	//require('kc');
-    var router = require('plugins/router');
-    //require('nativedroid2');
-	
+	  var router = require('plugins/router');
+	   
     var profile = function(){
+        // $(document).on('pagecreate','#pages_profile',function(event){ //always fired
+        //    console.log( 'This page was pagecreate by jQuery Mobile!');
+        // });
+
+        // $(document).on( 'pageinit', '#pages_profile', function( event ) { //always fired
+        //   console.log( 'This page was just enhanced by jQuery Mobile!' );
+        // });
+
+        // $(document).on('pagebeforeshow','#pages_profile',function(event){
+        //    console.log( 'This page was pagebeforeshow by jQuery Mobile!');
+        // });
+
+        // $(document).on('pageshow','#pages_profile',function(event){
+        //    console.log( 'This page was pageshow by jQuery Mobile!');
+        // });
+
+
+        // $(document).on( 'pageload', '#pages_profile', function( event ) {
+        //   console.log( 'This page was just loaded by jQuery Mobile!');
+        // });
+
         this.view;
+        this.DOMloaded = false;
     };
 
     profile.prototype.activate = function(first_argument) {
+        console.info('profile activate');
+       
         $.nd2({});
         var k = new $.nd2Search({
           placeholder : "Search",   // Placeholder in the search field
@@ -27,19 +49,9 @@ define(function(require) {
     };
 
     profile.prototype.attached = function(view, parent){
-         this.view = view;
-         
-         $(view).page();
-         //$(view).show();
-         $(this.view).addClass('ui-page-active');
-         //$(this.view).find("#popupMenu2").popup();
-
-         
-
-        
-         //$(view).page()
-           // $(view).addClass('ui-page-active');
-            //$.mobile.initializePage();
+        this.view = view;
+        console.info('profile attached');  
+        $(this.view).addClass('ui-page-active');
     };
 
     profile.prototype.panelToggle = function() {
@@ -55,30 +67,35 @@ define(function(require) {
     };
 
     profile.prototype.compositionComplete = function(view, parent){
-        // $(view).on('pageinit', function() {
-                
-        // });
-
+        $(this.view).page();
+        $.mobile.initializePage();
+        console.info('profile compositionComplete');
+        //$('.page-host').pagecontainer('change', '#pages_profile');
         //$.mobile.initializePage();
         //$(view).trigger('create');
         //$(view).enhanceWithin();
-        
 
-        
-        //$.mobile.changePage('mgallery');
+        this.DOMloaded = true;
+        $.mobile.pageContainer.pagecontainer('change', '#pages_profile', {
+              transition: 'flip',
+              changeHash: false,
+              reverse: true,
+              showLoadMsg: true
+          });
     };
 
     profile.prototype.navto = function(route){        
         router.navigate(route);
     };
 
-    profile.prototype.detached = function(view, parent){
-        $(view).page('destroy');
-    };
+    //profile.prototype.detached = function(view, parent){
+        //$(view).page('destroy');
+    //};
 
     profile.prototype.deactivate = function(){
             //alert('tud tud dun dun tud dun dun');
         $(this.view).removeClass('ui-page-active');
+        console.info('profile deactivate');
     };
 
 

@@ -1,4 +1,4 @@
-<div data-role="page" data-transition="slide">
+<div data-role="page" data-transition="slide" id="pages_profile">
 	<!-- k compose: 'panel.left.html' --><!--/k-->
     
 
@@ -35,15 +35,27 @@
 			<div class="row">
 				<div class="col-xs">
 					<div class="box">
-						work
+						home
 						<a data-bind="click: function(data, event){ this.navto('') }" class="ui-btn ui-btn-raised clr-primary">Go to home</a>
+						<select name="category" id="category" data-native-menu="false">
+                    <option value="ARS">Electronics</option>
+                    <option value="MXN">Sports & Leisure</option>
+                    <option value="COP">Home & Garden</option>
+                    <option value="EUR">Games & Consoles</option>
+                    <option value="USD">Books, Movies & Music</option>
+                    <option value="GBP">Fashion & Accessories</option>
+                    <option value="BRL">Baby & Child</option>
+                    <option value="INR">Applicances</option>
+                    <option value="INR">Services</option>
+                    <option value="INR">Other</option>
+                </select>
 					</div>
 				</div>
 			</div>
 
 			<div class="row center-xs center-sm center-md center-lg around-xs around-sm around-md around-lg">
 				<div class="cell">
-						work
+						home again
 						<a data-bind="click: function(data, event){ this.navto('') }" class="ui-btn ui-btn-raised clr-primary">Go to home</a>
 					
 				</div>

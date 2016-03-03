@@ -1,4 +1,4 @@
-<div data-role="page" data-transition="slide">
+<div data-role="page" data-transition="slide" id="pages_additem">
 
 	<div data-role="header" data-position="fixed" class="wow fadeIn">
 		<a href="#" class="ui-btn ui-btn-left wow" data-wow-delay='1.2s' data-rel="back"><i class="zmdi zmdi-arrow-back"></i></a>
@@ -7,45 +7,77 @@
 
 	<div role="main" class="ui-content wow" data-inset="false" data-wow-delay="0.2s">
 
-		<row>
+		<div class="row">
+            <a data-bind="click: function(data, event){ this.navto('') }" class="ui-btn ui-btn-raised clr-primary">Go to home</a>
             <!--<div class="col-xs-12 col-sm-6 col-md-4">-->
-			<div class="col-xs-12 col-sm-12 col-md-12">
+			<!-- <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="box">
-                <!--<label for="postingTitle">Posting Title:</label>-->
+                    <label for="postingTitle">Posting Title:</label>
                     <input type="text" name="postingTitle" id="postingTitle" value="" data-clear-btn="true" placeholder="What are you renting?">
                 </div>               
-            </div>
-		</row>
-        <row>
+            </div> -->
+		</div>
+        <div class="row">
 			<div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="box">
                     <!--<label for="postingDescription">Posting Description:</label>-->
                     <textarea cols="40" rows="5" name="postingDescription" id="postingDescription" placeholder="Please write a short description"></textarea>
                 </div>              
             </div>
-		</row>
-        <row>
+		</div>
+        <div class="row">
 			<div class="col-xs-6 col-sm-6 col-md-6">
                 <div class="box">
                     <input type="text" name="price" id="price" value="" data-clear-btn="true" placeholder="Price">
                 </div>
 			</div>
             <div class="col-xs-6 col-sm-6 col-md-6">
-                <form>
-                    <!-- <div class="box"> -->
-                    <div class="ui-field-contain">
-                        <label for="currency">Basic:</label>
-                        <select name="currency" id="currency" data-native-menu="false">
-                            <option value="1">The 1st Option</option>
-                            <option value="2">The 2nd Option</option>
-                            <option value="3">The 3rd Option</option>
-                            <option value="4">The 4th Option</option>
+
+                    <!-- <input type="text" name="price" id="price" value="" data-clear-btn="true" placeholder="Price"> -->
+                
+                <!-- <select name="currency" id="currency" data-native-menu="false">
+                    <option value="ARS">ARS</option>
+                    <option value="MXN">MXN</option>
+                    <option value="COP">COP</option>
+                    <option value="EUR">EUR</option>
+                    <option value="USD">$</option>
+                    <option value="GBP">GBP</option>
+                    <option value="BRL">BRL</option>
+                    <option value="INR">INR</option>
+                </select> -->
+                <select name="select-choice-8" id="select-choice-8b" multiple="multiple" data-icon="grid" data-iconpos="left" data-native-menu="false">
+                            <option>Choose a few options:</option>
+                            <optgroup label="USPS">
+                                <option value="standard" selected="">Standard: 7 day</option>
+                                <option value="rush">Rush: 3 days</option>
+                                <option value="express">Express: next day</option>
+                                <option value="overnight">Overnight</option>
+                            </optgroup>
+                            <optgroup label="FedEx">
+                                <option value="firstOvernight">First Overnight</option>
+                                <option value="expressSaver">Express Saver</option>
+                                <option value="ground">Ground</option>
+                            </optgroup>
                         </select>
-                    </div>
-                    <!-- </div> -->
-                </form>
-			</div>
-        </row>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12">
+                <label for="category1" class="select">Select</label>
+                <select name="category1" id="category1" data-native-menu="false">
+                    <option value="ARS">Electronics</option>
+                    <option value="MXN">Sports & Leisure</option>
+                    <option value="COP">Home & Garden</option>
+                    <option value="EUR">Games & Consoles</option>
+                    <option value="USD">Books, Movies & Music</option>
+                    <option value="GBP">Fashion & Accessories</option>
+                    <option value="BRL">Baby & Child</option>
+                    <option value="INR">Applicances</option>
+                    <option value="INR">Services</option>
+                    <option value="INR">Other</option>
+                </select>
+            </div>
+        </div>
 	</div>
 
 	<!-- <div data-role="footer" data-position="fixed">
