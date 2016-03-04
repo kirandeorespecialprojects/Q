@@ -1,26 +1,12 @@
 define(function(require) {
-	require('nativedroid2');
-
-	var additem = function(){
-		this.view;
+	var page = require('viewmodels/page');
+	
+	var myitems = function(){
+		page.call(this, { pagename: 'myitems' });
 	};
 
-	additem.prototype = {
-		attached : function(view, parent){
-	         this.view = view;
-	         
-	         $(view).page();
-	         //$(view).show();
-	         $(this.view).addClass('ui-page-active');
-	         $.nd2({
-            
-          	 });
-     	},
-     	deactivate : function(){
-	            //alert('tud tud dun dun tud dun dun');
-	        $(this.view).removeClass('ui-page-active');
-	    }
-	};
+	var _super = page.prototype;
+    myitems.prototype = Object.create(_super);
 
-	return additem;
+	return myitems;
 });

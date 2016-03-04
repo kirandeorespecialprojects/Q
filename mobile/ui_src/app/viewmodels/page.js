@@ -28,22 +28,32 @@ define(function (require) {
         //   console.log( 'This page was just loaded by jQuery Mobile!');
         // });
 		this.view;
+		this.options = options;
 	};
 
 	page.prototype = {
+		onactivate: function(options){},
+		onattached: function(view, parent){},
+		oncompositionComplete: function(view, parent){},
+		ondeactivate: function(){},
+
 		activate: function(options){
-			console.info('profile activate');
+			console.info(this.options.pagename + ' activate');
         	$.nd2({});
+
+        	return this.onactivate(options);
 		},
 		attached: function(view, parent){
+			console.info(this.options.pagename + ' attached');  
 			this.view = view;
-        	console.info('profile attached');  
-        	$(this.view).addClass('ui-page-active');
+			this.onattached(view, parent);
+			$(this.view).addClass('ui-page-active');
 		},
 		compositionComplete: function(view, parent){
+			console.info(this.options.pagename + ' compositionComplete');
 			$(this.view).page();
         	$.mobile.initializePage();
-        	console.info('profile compositionComplete');
+        	this.oncompositionComplete(view, parent);
         	//$(view).trigger('create');
         	//$(view).enhanceWithin();
         	//$('.page-host').pagecontainer('change', '#pages_profile');
@@ -54,11 +64,9 @@ define(function (require) {
     	deactivate: function(){
 	        //alert('tud tud dun dun tud dun dun');
 	        $(this.view).removeClass('ui-page-active');
-	        console.info('profile deactivate');
+	        this.ondeactivate();
+	        console.info(this.options.pagename + ' deactivate');
 	    }
-		// getView : function(){
-		// 	return 'views/page.html';
-		// }
 	}
 
 	return page;

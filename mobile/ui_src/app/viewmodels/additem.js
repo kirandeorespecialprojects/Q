@@ -2,7 +2,7 @@ define(function(require) {
 	var page = require('viewmodels/page');
 	
 	var additem = function(){
-		page.call(this, {});
+		page.call(this, { pagename: 'additem' });
 	};
 
 	var _super = page.prototype;

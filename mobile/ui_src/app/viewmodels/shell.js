@@ -3,6 +3,9 @@
 //createa dynamic pages
 //http://stackoverflow.com/questions/6050384/dynamically-create-jquery-mobile-page-via-javascript-after-clicking
 
+//have elements ids unique between pages
+//each page should have id attribute
+
 define(function(require) {
     // require('jquery.mobile');
     //require('jquery.ui')
